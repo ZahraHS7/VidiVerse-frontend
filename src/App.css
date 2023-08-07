@@ -1,0 +1,634 @@
+.App {
+  text-align: center;
+}
+
+.content {
+  min-height: calc(100vh - 100px);
+}
+
+body {
+  margin: 0;
+  padding: 0 0 0 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar {
+  z-index: 10;
+}
+
+.nav-link.register {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link.register::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 4px;
+  background-color: #0089e2;
+  transition: width 0.2s ease-out;
+}
+
+.nav-link.register:hover::after {
+  left: 0;
+  width: 100%;
+  background-color: #5cb85c;
+  transition: width 0.3s ease-out;
+}
+
+.log-register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -16px -116px;
+  background-image: url("./pics/Friends\ Kawaii.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.nav-link.login {
+  background-color: #0275d8;
+}
+
+.dropdown-menu.show {
+  position: absolute;
+  top: 100%;
+  left: -50px;
+  transform: translateX(-50%);
+}
+
+.form-container {
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px; /* Set a maximum width for the form container */
+  width: 100%; /* Set a width to fill the available space */
+  margin: auto 0; /* Center horizontally and add 20px margin to the top */
+}
+
+.customer-container {
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px; /* Set a maximum width for the form container */
+  width: 90%; /* Set a width to fill the available space */
+  margin: 0 auto; /* Center horizontally and add 20px margin to the top */
+}
+
+/* Add your custom styles for the SearchBox component */
+#searchbox {
+  color: black;
+  background-color: #d4d4d4;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.Like {
+  cursor: pointer;
+}
+
+.Like.red {
+  color: red;
+}
+
+.table thead tr {
+  cursor: pointer;
+  border-top: none;
+}
+
+.table-container {
+  flex: 1 0 100%;
+}
+
+.movieFormContainer {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Set the container height to full viewport height */
+}
+
+.movieForm {
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%; /* Set a width with respect to the parent container */
+  max-width: 800px; /* Set a maximum width for the form container */
+  margin: 50px auto; /* Center the container horizontally */
+}
+
+.movie-pics-preview {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-pic-thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 5px;
+}
+
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 0 -80px;
+  height: 450px;
+  overflow: hidden;
+}
+
+.carousel-indicators .indicator {
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  margin: 7px;
+  background-color: #ccc;
+}
+
+.carousel-indicators .indicator.active {
+  background-color: #0275d8;
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  animation-name: fade;
+  animation-duration: 2s;
+}
+@keyframes fade {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-item img {
+  height: 370px; /* Make the image take the full height of the wrapper */
+  object-fit: contain;
+}
+
+.home-carousel {
+  max-width: 2000px;
+  max-height: 470px;
+  margin: -16px -116px;
+  position: relative; /* Add position relative */
+  z-index: 1;
+}
+
+.home-carousel-content img {
+  height: 470px;
+  width: 100%; /* Make the image take the full width of the wrapper */
+  object-fit: fill;
+}
+
+.home-carousel-content {
+  position: relative;
+}
+
+.home-carousel-details {
+  padding: 0 200px;
+  position: absolute;
+  bottom: 120px;
+  width: 60%;
+  text-align: left;
+}
+
+.home-carousel-title {
+  font-size: 24px; /* Adjust the font size for the title */
+  margin: 0; /* Remove default margin for the title */
+}
+
+.home-carousel-summary {
+  font-size: 14px; /* Adjust the font size for the summary */
+  margin: 5px 0; /* Add margin between the title and summary */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: -30px;
+}
+
+.carousel-control-prev {
+  left: 0;
+}
+
+.carousel-control-next {
+  right: 0;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(49, 49, 49, 0.8);
+}
+
+.movie-details {
+  flex: 1;
+  padding-left: 20px;
+  text-align: left;
+}
+
+/* Responsive layout for smaller screens */
+@media screen and (max-width: 768px) {
+  .carousel-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 10px;
+    height: 100%;
+  }
+
+  .movie-details {
+    padding-top: 5px;
+    padding-left: 20px;
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  thead {
+    display: none;
+  }
+
+  tbody {
+    display: block;
+  }
+  th,
+  td {
+    display: block;
+    text-align: left;
+  }
+  th:first-child,
+  td:first-child {
+    position: sticky;
+    left: 0;
+  }
+
+  .movie-flexbox {
+    max-width: 500px;
+    justify-content: center; /* Align items to the left */
+    margin: 0;
+    padding: 0 10px; /* Add horizontal padding to the flexbox */
+    overflow: hidden; /* Hide overflow to ensure only 3 posters are visible */
+  }
+
+  .movie-item:nth-child(4n + 4) {
+    display: none;
+  }
+
+  .movie-poster {
+    width: 100%; /* Make the posters wider */
+    height: 100%; /* Adjust the height of the posters */
+    object-fit: cover;
+  }
+}
+
+.movie-details span {
+  font-size: 15px;
+}
+
+.movie-details hr {
+  margin: 8px 0;
+}
+
+.movie-details strong {
+  font-weight: normal;
+  padding-right: 7px;
+}
+
+/* Styles for the movie flexbox wrapper */
+.movie-flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 -80px;
+}
+
+.movie-item {
+  margin: 10px;
+  flex: 0 0 calc(20% - 20px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 370px;
+}
+
+.movie-poster {
+  display: block;
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: 0.5s ease;
+}
+
+.movie-item:hover .overlay {
+  height: 80px;
+}
+
+.rent-link {
+  width: 90%;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.movie-title {
+  font-size: small;
+  text-align: left;
+  margin-top: 335px;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  align-items: flex-end;
+}
+
+.pagination {
+  list-style-type: none;
+  padding: 0;
+  border-radius: 20px; /* Add rounded corners */
+  padding: 10px; /* Add padding */
+}
+
+.pagination li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.pagination li a,
+.pagination li button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #c6c6c6;
+  color: #000; /* Set black text color */
+  border: none;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination li:not(.active) a:hover,
+.pagination li:not(.active) button:hover {
+  background-color: #ddd;
+}
+
+.pagination li.disabled a,
+.pagination li.disabled button {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.list-group-item.active {
+  position: relative;
+}
+
+.list-group {
+  border-radius: 100px;
+}
+
+.list-group-item.active::before,
+.list-group-item.active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 10px; /* Increase the border width for a larger triangle */
+  border-color: transparent transparent transparent #007bff; /* Set the color of the triangle here */
+  opacity: 0; /* Initially hide the triangle */
+  transition: opacity 0.2s ease-in-out, left 0.2s ease-in-out; /* Add transition properties */
+}
+
+.list-group-item.active::before {
+  left: 100%;
+  margin-left: -3px; /* Adjust this value if needed to position the triangle correctly */
+}
+
+.list-group-item.active::after {
+  left: calc(100% + 3px);
+  margin-left: -10px; /* Adjust this value if needed to position the triangle correctly */
+}
+
+.list-group-item.active::before {
+  animation: slideIn 0.2s ease-in-out 0.2s forwards; /* Add animation for delayed appearance */
+}
+
+.image-container-right,
+.image-container-left {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.image-container-right img {
+  top: 160px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  box-shadow: 1px 1px 0 0 #000000, 2px 2px 0 0 #000000, 3px 3px 0 0 #050505,
+    4px 4px 0 0 #000000, 4vw 2vw 13vw 0 rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+.image-container-left img {
+  top: 150px;
+  right: 14%;
+  width: 100%;
+  height: 100%;
+  box-shadow: -1px 1px 0 0 #000000, -2px 2px 0 0 #000000, -3px 3px 0 0 #050505,
+    -4px 4px 0 0 #000000, -4vw 2vw 13vw 0 rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+.how-it-works {
+  position: relative;
+  margin: -16px -116px;
+}
+
+.how-it-works img {
+  width: 2000px;
+  max-height: 500px;
+  opacity: 0.5;
+}
+
+.centerFlex {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
+  margin: auto;
+}
+
+.centerFlex h2 {
+  position: absolute;
+  top: -100px;
+  right: 40%;
+}
+
+.flex-item {
+  padding: 15px;
+  margin: 10px;
+  flex: 1;
+  text-align: center;
+}
+
+.flex-item i {
+  font-size: 90px;
+  padding: 20px;
+  border: 3px solid #5cb85c;
+  border-radius: 80px;
+}
+
+.how-it-works .signBtn {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+}
+
+.go-to-top-button {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  background-color: #0275d8;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.go-to-top-button.show {
+  opacity: 0.9;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 1;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 50%;
+  left: 15%;
+  transform-origin: 50%;
+  animation: circle7124 0.5s alternate infinite ease;
+}
+
+.green {
+  background-color: #4caf50;
+}
+
+.blue {
+  background-color: #3498db;
+  left: 45%;
+  animation-delay: 0.2s;
+}
+
+@keyframes circle7124 {
+  0% {
+    top: 60px;
+    height: 5px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
+  }
+  40% {
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+.shadow {
+  width: 20px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 62px;
+  transform-origin: 50%;
+  z-index: 1;
+  left: 15%;
+  filter: blur(1px);
+  animation: shadow046 0.5s alternate infinite ease;
+}
+
+.shadow:nth-child(3) {
+  left: 45%;
+  animation-delay: 0.2s;
+}
+
+@keyframes shadow046 {
+  0% {
+    transform: scaleX(1.5);
+  }
+  40% {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scaleX(0.2);
+    opacity: 0.4;
+  }
+}
