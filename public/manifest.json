@@ -1,0 +1,20 @@
+{
+  "short_name": "VidiVerse",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "2000x2032",
+      "type": "image/png"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "2000x2250"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
