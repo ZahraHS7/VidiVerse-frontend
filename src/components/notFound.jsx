@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { Link } from 'react-router-dom';
-import '../404style.css';
+import '../css files/404style.css';
 
 const NotFound = () => {
   return (
