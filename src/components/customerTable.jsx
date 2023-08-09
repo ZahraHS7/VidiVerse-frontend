@@ -51,12 +51,14 @@ class CustomerTable extends Component {
     const { customers, onSort, sortColumn } = this.props;
 
     return (
-      <Table
-        columns={this.columns}
-        data={customers}
-        sortColumn={sortColumn}
-        onSort={onSort}
-      />
+      <div style={{ overflowX: 'scroll' }}>
+        <Table
+          columns={this.columns}
+          data={customers}
+          sortColumn={sortColumn}
+          onSort={onSort}
+        />
+      </div>
     );
   }
 }
