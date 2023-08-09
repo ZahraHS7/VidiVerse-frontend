@@ -484,26 +484,3 @@ body {
   left: 50%;
   transform: translate(-50%, -90%);
 }
-
-.go-to-top-button {
-  position: fixed;
-  bottom: 40px;
-  right: 30px;
-  background-color: #0275d8;
-  color: #fff;
-  font-size: 25px;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  cursor: pointer;
-  z-index: 9999;
-}
-
-.go-to-top-button.show {
-  opacity: 0.9;
-}

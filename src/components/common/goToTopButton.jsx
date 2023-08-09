@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaArrowCircleUp } from 'react-icons/fa';
+import '../../css files/goToTopButton.css'
 
 const GoToTopButton = () => {
   const [showButton, setShowButton] = useState(false);
