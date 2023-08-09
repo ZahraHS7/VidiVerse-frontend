@@ -240,21 +240,6 @@ body {
   text-align: left;
 }
 
-/* Responsive layout for smaller screens */
-@media screen and (max-width: 768px) {
-  .carousel-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 0 10px;
-    height: 100%;
-  }
-
-  .movie-details {
-    padding-top: 5px;
-    padding-left: 20px;
-  }
-}
-
 .movie-details span {
   font-size: 15px;
 }
