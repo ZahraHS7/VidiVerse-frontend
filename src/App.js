@@ -24,6 +24,7 @@ import ThemeWrapper from './components/themeWrapper';
 import auth from './services/authService';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import './css files/smallScreenDevices.css';
 
 const App = () => {
   const [user, setUser] = useState(null);

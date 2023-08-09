@@ -1,0 +1,239 @@
+/* Add a media query for screens with a maximum width of 768px (typical for mobile devices) */
+@media screen and (max-width: 768px) {
+  .nav-link {
+    margin-left: -18px;
+    margin-right: 14px;
+  }
+
+  .nav-link.login{
+    margin-right: 10px;
+  }
+
+  .nav-link.register {
+    margin-left: -10px;
+    margin-right: -7px;
+  }
+
+  nav img {
+    margin-right: -7px;
+  }
+  .log-register-container {
+    margin: -16px -17px;
+    width: 488px;
+  }
+
+  .carousel-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 10px;
+    height: 100%;
+  }
+
+  .carousel-indicators .indicator {
+    margin: 5px; /* Adjust spacing for indicators */
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 20px; /* Decrease control width */
+  }
+
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: transparent; /* Remove background on hover */
+  }
+
+  .carousel-item img {
+    height: auto; /* Adjust image height for mobile */
+  }
+
+  .home-carousel {
+    width: 522px;
+    height: 400px;
+    margin: -16px -32px;
+    position: relative; /* Add position relative */
+  }
+
+  .home-carousel-content img {
+    height: 400px;
+    width: 100%; /* Make the image take the full width of the wrapper */
+    object-fit: fill;
+  }
+
+  .home-carousel-content {
+    bottom: 20px; /* Adjust position of carousel details */
+    padding: 0 20px; /* Adjust padding */
+  }
+
+  .home-carousel-details {
+    padding: 0 10px;
+    position: absolute;
+    bottom: 10px;
+    width: 450px;
+    text-align: left;
+  }
+
+  .home-carousel-title {
+    font-size: 20px; /* Adjust font size for title */
+  }
+
+  .home-carousel-summary {
+    font-size: 16px; /* Adjust font size for summary */
+  }
+
+  .movie-details {
+    padding-top: 5px;
+    padding-left: 20px;
+  }
+
+  .image-container-right img {
+    right: -20px;
+    width: 90%;
+    height: 90%;
+  }
+
+  .image-container-left img {
+    right: -25px;
+    width: 92%;
+    height: 90%;
+  }
+
+  .movieFlexHeader h4{
+    margin: 5px 0px;
+  }
+
+  .movie-flexbox {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    margin: 0;
+    width: 100%;
+  }
+
+  .movie-item {
+    flex: 0 0 calc(45% - 8px);
+    margin: 4px;
+    position: relative;
+    height: 370px;
+    scroll-snap-type: x mandatory; /* Enable snap scrolling */
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+    animation: slide 12s linear infinite;
+  }
+
+  .movie-poster {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    scroll-snap-align: start; /* Snap alignment */
+  }
+
+  .overlay {
+    bottom: 0;
+  }
+
+  .movie-title {
+    display: none;
+  }
+
+  /* Define an animation for sliding */
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-290% - 16px)); /* Slide by two movie widths */
+    }
+  }
+
+  .centerFlex {
+    top: 70%; /* Adjust centerFlex position */
+    left: 50%;
+    transform: translate(-50%, -70%);
+    font-size: 14px; /* Adjust font size for text */
+    width: 90%; /* Adjust width */
+  }
+
+  .centerFlex h2 {
+    top: -70px; /* Adjust h2 position */
+    right: 50%; /* Adjust position */
+    transform: translate(50%, 0);
+    font-size: 16px; /* Adjust font size for h2 */
+  }
+
+  .flex-item i {
+    font-size: 60px; /* Adjust icon size */
+  }
+
+  .how-it-works {
+    margin: 0; /* Remove negative margins */
+  }
+
+  .how-it-works img {
+    margin-bottom: -16px;
+    width: 100%; /* Adjust image width */
+    max-height: 300px; /* Adjust max-height */
+    opacity: 0.5;
+  }
+
+  .centerFlex {
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    font-size: 14px;
+    flex-direction: row; /* Change to row for horizontal alignment */
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center;
+    width: 100%; /* Adjust width to fill the screen */
+    padding: 0 10px; /* Add padding for spacing between items */
+  }
+
+  .centerFlex h2 {
+    right: 50%;
+    font-size: 20px;
+  }
+
+  .flex-item h4 {
+    font-size: 15px;
+  }
+
+  .flex-item {
+    padding: 5px; /* Adjust padding */
+    margin: 5px; /* Adjust margin */
+    flex: none; /* Reset flex property */
+    text-align: center;
+  }
+
+  .flex-item i {
+    font-size: 40px; /* Adjust icon size */
+    padding: 10px; /* Adjust padding */
+    border: 2px solid #5cb85c;
+    border-radius: 50%; /* Adjust border radius */
+  }
+
+  .how-it-works .signBtn {
+    font-size: small;
+    width: 98px;
+    height: 28px;
+    padding-bottom: 25px;
+    top: 97%; /* Adjust signBtn position */
+    transform: translate(-50%, -100%);
+  }
+
+  footer p{
+    margin-left: -14px;
+    margin-right: -25px;
+  }
+
+  footer img{
+    margin-left: -10px;
+  }
+  .link_404{
+    margin-left: 160px;
+    display: inline-block;
+  }
+}
