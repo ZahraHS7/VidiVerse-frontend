@@ -180,7 +180,7 @@ body {
 }
 
 .carousel-item img {
-  height: 370px; /* Make the image take the full height of the wrapper */
+  height: 100%; /* Make the image take the full height of the wrapper */
   object-fit: contain;
 }
 
