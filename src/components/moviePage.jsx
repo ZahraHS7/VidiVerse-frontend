@@ -77,24 +77,24 @@ const MoviePage = () => {
           {renderRentButton()}
         </div>
       </div>
-      <div className="row mt-5">
+      <div className="row mt-5 movieFlexHeader">
         <div>
-          <h4 style={{margin: "5px -80px"}}>{movie?.genre.type}</h4>
+          <h4>{movie?.genre.type}</h4>
           <MovieFlexBox type="genre" data={movie?.genre.type} />
         </div>
       </div>
-      <div className="row mt-5">
+      <div className="row mt-5 movieFlexHeader">
         {randomGenres[0] && (
           <div>
-            <h4 style={{ margin: "6px -80px" }}>{randomGenres[0].type}</h4>
+            <h4>{randomGenres[0].type}</h4>
             <MovieFlexBox type="genre" data={randomGenres[0].type} />
           </div>
         )}
       </div>
-      <div className="row mt-5">
+      <div className="row mt-5 movieFlexHeader">
         {randomGenres[1] && (
           <div>
-            <h4 style={{ margin: "6px -80px" }}>{randomGenres[1].type}</h4>
+            <h4>{randomGenres[1].type}</h4>
             <MovieFlexBox type="genre" data={randomGenres[1].type} />
           </div>
         )}

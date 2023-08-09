@@ -134,6 +134,10 @@ body {
   margin: 5px;
 }
 
+.movieFlexHeader h4{
+  margin: 5px -80px;
+}
+
 .carousel-wrapper {
   display: flex;
   justify-content: center;
