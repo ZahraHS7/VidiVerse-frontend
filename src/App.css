@@ -371,7 +371,7 @@ body {
 .list-group-item.active::after {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 25%;
   transform: translateY(-50%);
   border-style: solid;
   border-width: 10px; /* Increase the border width for a larger triangle */
@@ -382,7 +382,6 @@ body {
 
 .list-group-item.active::before {
   left: 100%;
-  margin-left: -3px; /* Adjust this value if needed to position the triangle correctly */
 }
 
 .list-group-item.active::after {
@@ -392,6 +391,17 @@ body {
 
 .list-group-item.active::before {
   animation: slideIn 0.2s ease-in-out 0.2s forwards; /* Add animation for delayed appearance */
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .image-container-right,
