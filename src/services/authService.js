@@ -11,6 +11,17 @@ export async function login(email, password) {
   localStorage.setItem(tokenKey, jwt);
 }
 
+export async function loginwithGoogle(credential) {
+  const userObject = jwtDecode(credential);
+  console.log(userObject);
+  const { email } = userObject;
+
+  const { data: jwt} = await http.post('/auth/google', {
+    email: email
+  });
+  localStorage.setItem(tokenKey, jwt);
+}
+
 export function loginWithJwt(jwt) {
   return localStorage.setItem(tokenKey, jwt);
 }
@@ -35,6 +46,7 @@ export function getJwt() {
 export default {
   login,
   loginWithJwt,
+  loginwithGoogle,
   logout,
   getCurrentUser,
   getJwt
