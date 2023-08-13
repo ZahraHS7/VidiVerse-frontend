@@ -1,5 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { GoogleLogin } from '@react-oauth/google';
+import { toast } from 'react-toastify';
 import Joi from "joi-browser";
 import Form from './common/form';
 import auth from '../services/authService';
@@ -35,6 +37,25 @@ class LoginForm extends Form {
     }
   };
 
+  responseMessage = async (response) => {
+    try {
+      await auth.loginwithGoogle(response.credential);
+      const { state } = this.props.location;
+      window.location = state ? state.from.pathname : "/" ;
+    }
+    catch(ex) {
+      if (ex.response && ex.response.status === 400) {
+        const errors = { ...this.state.errors };
+        errors.username = ex.response.data;
+        this.setState({ errors });
+      }
+    }
+  };
+
+  errorMessage = (error) => {
+    toast.error('Error sign up:', error);
+  };
+
   render() {
     if(auth.getCurrentUser()) return <Redirect to="/" />;
 
@@ -46,7 +67,18 @@ class LoginForm extends Form {
             {this.renderInput("username", "Username")}
             {this.renderInput("password", "Password", "password")}
             {this.renderButton("Login")}
-          </form>
+          </form><hr/>
+          <div className="px-5 m-2">
+              <GoogleLogin
+                onSuccess={credentialResponse => {
+                  this.responseMessage(credentialResponse);
+                }}
+                onError={this.errorMessage}
+                theme="filled_blue"
+                shape="circle"
+                text="continue_with"
+              />
+            </div>
         </div>
       </div>
     );

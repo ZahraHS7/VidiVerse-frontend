@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { GoogleLogin } from '@react-oauth/google';
+import { toast } from 'react-toastify';
 import Joi from "joi-browser";
 import Form from './common/form';
 import * as userService from '../services/userService';
 import auth from '../services/authService';
-import { Link } from 'react-router-dom';
-
 class RegisterForm extends Form {
   state = {
     data: { username: "", password: "", name:"" },
@@ -40,6 +41,25 @@ class RegisterForm extends Form {
     }
   };
 
+  responseMessage = async (response) => {
+    try {
+      const googleResponse = await userService.registerWithGoogle(response.credential);
+      auth.loginWithJwt(googleResponse.headers['x-auth-token']);
+      window.location = '/';
+    }
+    catch(ex) {
+      if (ex.response && ex.response.status === 400) {
+        const errors = { ...this.state.errors };
+        errors.username = ex.response.data;
+        this.setState({ errors });
+      }
+    }
+  };
+
+  errorMessage = (error) => {
+    toast.error('Error sign up:', error);
+  };
+
   render() {
     return (
       <div className="log-register-container">
@@ -50,7 +70,19 @@ class RegisterForm extends Form {
             {this.renderInput("username", "Username")}
             {this.renderInput("password", "Password", "password")}
             {this.renderButton("Register")}
-            </form>
+            </form><hr/>
+            <div className="px-5 m-2">
+              <GoogleLogin
+                onSuccess={credentialResponse => {
+                  this.responseMessage(credentialResponse);
+                }}
+                onError={this.errorMessage}
+                theme="filled_blue"
+                shape="circle"
+                text="continue_with"
+                useOneTap
+              />
+            </div>
             <div style={{ textAlign: "center" }}>
               <Link to='/login' style={{ textDecoration: "none" }}>Log in</Link>
             </div>
