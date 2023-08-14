@@ -236,4 +236,8 @@
     margin-left: 160px;
     display: inline-block;
   }
+
+  .four_zero_four_bg{
+    background-size: cover;
+  }
 }
