@@ -1,11 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { BsClock } from 'react-icons/bs';
+import { addFavoriteMovie, deleteFavoriteMovie, getMyProfile } from '../services/userService';
 import auth from '../services/authService';
 import Like from './common/like';
 import Table from './common/table';
+import { toast } from 'react-toastify';
 
 class MoviesTable extends Component {
+  state = {
+    favoriteMovies: [], // Store the favorite movies for the current user
+  };
+
+  async componentDidMount() {
+    const user = auth.getCurrentUser();
+
+    if (user) {
+      const { data: userProfile } = await getMyProfile();
+      const favoriteMovies = userProfile.favoriteMovies.map(movie => movie._id);
+      this.setState({ favoriteMovies });
+    }
+  }
+
   columns = [
     {
       path: 'title',
@@ -33,7 +49,10 @@ class MoviesTable extends Component {
     {
       key: 'like',
       content: movie => (
-        <Like liked={movie.liked} onClick={() => this.props.onLike(movie)} />
+        <Like
+          onLikeToggle={() => this.handleLikeToggle(movie)}
+          isFavorite={this.state.favoriteMovies.includes(movie._id)}
+        />
       )
     },
     {
@@ -73,15 +92,46 @@ class MoviesTable extends Component {
     }
   }
 
+  handleLikeToggle = async (movie) => {
+    const { favoriteMovies } = this.state;
+    const user = auth.getCurrentUser();
+
+    if (!user) {
+      toast.error(() => (
+        <div>
+          <p>Only users can add movies to favorites.</p>
+          <Link to="/register" className="btn btn-success btn-sm">
+            Register
+          </Link>
+        </div>
+      ));
+
+      return;
+    } else {
+      if (favoriteMovies.includes(movie._id)) {
+        await deleteFavoriteMovie(movie._id);
+        const updatedFavorites = favoriteMovies.filter(id => id !== movie._id);
+        this.setState({ favoriteMovies: updatedFavorites });
+        toast.success("Movie removed from favorites")
+      } else {
+        await addFavoriteMovie(movie._id);
+        const updatedFavorites = [...favoriteMovies, movie._id];
+        this.setState({ favoriteMovies: updatedFavorites });
+        toast.success("Movie added to favorites")
+      }
+    }
+  };
+
   render() {
     const { movies, onSort, sortColumn } = this.props;
 
     return (
       <Table
-      columns={this.columns}
-      data={movies}
-      sortColumn={sortColumn}
-      onSort={onSort} />
+        columns={this.columns}
+        data={movies}
+        sortColumn={sortColumn}
+        onSort={onSort}
+      />
     );
   }
 }
