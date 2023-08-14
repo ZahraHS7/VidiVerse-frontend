@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import { toast } from 'react-toastify';
-import { getMovies, deleteMovie, saveMovie } from '../services/movieService';
+import { getMovies, deleteMovie } from '../services/movieService';
 import { getGenres } from '../services/genreService';
 import auth from '../services/authService';
 import Pagination from './common/pagination';
@@ -31,25 +31,6 @@ class Movies extends Component {
     const { data: movies } = await getMovies();
     this.setState({ movies , genres, selectedGenre: genres[0] });
   }
-
-  handleLike = async movie => {
-    const originalMovies = this.state.movies;
-    const movies = [...this.state.movies];
-    const index = movies.indexOf(movie);
-    movies[index] = { ...movies[index] };
-    movies[index].liked = !movies[index].liked;
-
-    this.setState({ movies });
-
-    try {
-      await saveMovie(movies[index]);
-    } catch (ex) {
-      if (ex.response && ex.response.status === 404) {
-        toast.error("This movie has already been liked.");
-      }
-      this.setState({ movies: originalMovies });
-    }
-  };
 
   handleDelete = async movie => {
     const originalMovies = this.state.movies;
@@ -151,7 +132,6 @@ class Movies extends Component {
               movies={movies}
               sortColumn={sortColumn}
               onDelete={this.handleDelete}
-              onLike={this.handleLike}
               onRent={this.handleRent}
               onSort={this.handleSort}
               />
