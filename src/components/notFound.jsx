@@ -8,14 +8,14 @@ const NotFound = () => {
     <Container className="justify-content-center">
       <section className="page_404">
         <div className="four_zero_four_bg">
-          <h1 className="text-center text-black">404</h1>
+          <h1 className="text-center text-black">Oops!</h1>
         </div>
         <div className="contant_box_404">
           <h3 className="text-center text-black">
-            Look like you're lost
+            What on earth are you doing here!?
           </h3>
-          <p className="text-center text-black fs-6">the page you are looking for not available!</p>
-          <Link to="/" className="btn btn-success link_404">Go to Home</Link>
+          <p className="text-center text-black fs-6">Well, this is awkward, the page you were trying to view does not exist.</p>
+          <Link to="/" className="btn btn-success link_404">Get yourself home</Link>
         </div>
       </section>
     </Container>

@@ -1,17 +1,24 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-.page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+.dark .page_404 {
+    background-color: #3b3b3b;
 }
 
-.page_404  img{ width:100%;}
+.page_404{
+    padding:40px 0;
+    font-family: 'Arvo', serif;
+}
 
 .four_zero_four_bg{
-    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    background-image: url('../pics/404\ error.png');
     height: 400px;
     background-position: center;
  }
 
 .link_404{
-    margin-left: 490px;
+    margin-left: 470px;
     display: inline-block;
 }
 .contant_box_404{
