@@ -2,7 +2,6 @@ import http from "./httpService";
 import jwtDecode from "jwt-decode";
 
 const apiEndpoint = "/users";
-
 const authToken = localStorage.getItem('token');
 
 export function register(user) {
@@ -33,6 +32,31 @@ export function updateUser(user) {
     password: user.password,
     name: user.name
   }, {
+    headers: {
+      'x-auth-token': authToken,
+    },
+  });
+}
+
+export function addFavoriteMovie(movieId) {
+  return http.put(apiEndpoint + `/me/add-favorite-movie/${movieId}`, null, {
+    headers: {
+      'x-auth-token': authToken,
+    },
+  });
+}
+
+export function deleteFavoriteMovie(movieId) {
+  return http.delete(apiEndpoint + `/me/delete-favorite-movie/${movieId}`, null, {
+    headers: {
+      'x-auth-token': authToken,
+    },
+  });
+}
+
+export function getMyProfile() {
+  // Include the authentication token in the request headers
+  return http.get(apiEndpoint + '/me', {
     headers: {
       'x-auth-token': authToken,
     },
