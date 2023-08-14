@@ -2,14 +2,17 @@ import React, { useState, useEffect, useRef } from "react";
 import { NavLink, Link } from 'react-router-dom';
 import { BsPersonCircle} from 'react-icons/bs';
 import NightmodeButton from "./common/nightmodeButton";
+import Sidebar from "./common/sidebar";
 import * as Pics from '../pics';
 
 const NavBar = ({ user }) => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false); // Add this line
   const dropdownRef = useRef(null);
 
   const handleDropdownToggle = () => {
     setShowDropdown(!showDropdown);
+    setShowSidebar(false); // Hide the sidebar when dropdown is toggled
   };
 
   const handleDropdownClose = () => {
@@ -37,6 +40,7 @@ const NavBar = ({ user }) => {
         <Link className="d-flex align-items-center mb-2 mb-lg-0  text-decoration-none" to="/">
           <img src={Pics.logo} alt="logo vidiverse" style={{width: '50px', height: '50px'}} />
         </Link>
+        <Sidebar isOpen={showSidebar} onClose={() => setShowSidebar(false)} /> {/* Pass props */}
 
         <div className="nav col-lg-auto ml-5 mb-2 justify-content-center mb-md-0">
           <NavLink className="nav-link px-2 " to="/movies">
@@ -69,6 +73,15 @@ const NavBar = ({ user }) => {
               {showDropdown && (
                 <ul className="dropdown-menu show">
                   <NavLink className="dropdown-item" to="/profile" onClick={handleDropdownClose}>{user.name}</NavLink>
+                  <button
+                    className="btn text-success"
+                    onClick={() => {
+                      handleDropdownClose();
+                      setShowSidebar(true); // Show the sidebar on "Favorites" click
+                    }}
+                  >
+                    Favorites
+                  </button>
                   <li><hr className="dropdown-divider" /></li>
                   <NavLink className="dropdown-item" to="/logout" onClick={handleDropdownClose}>Logout</NavLink>
                 </ul>
