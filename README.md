@@ -71,3 +71,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## License
+
+This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+
+The GNU General Public License v3.0 (GPL-3.0) is an open-source license that grants users the freedom to use, study, share, and modify software. Under this license, you are allowed to view and use the code for any purpose, including commercial use. However, if you distribute modified versions of the code, those modifications must also be made available under the same GPL-3.0 license. This license promotes the principles of open collaboration and the sharing of improvements, contributing to the larger community of software development.
+
+Please review the full [GPL-3.0 license text](https://www.gnu.org/licenses/gpl-3.0.en.html) to understand its terms and conditions. By using this project's code, you agree to abide by the GPL-3.0 license.
